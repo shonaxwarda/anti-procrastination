@@ -1,6 +1,6 @@
 from aiogram import Bot as b
 from db.config import BOT_TOKEN, OBSERVABLE_USER
-from utils.utils import get_current_time
+from utils.utils import get_current_time, is_in_work_day
 import utils.loggers as loggers
 
 
@@ -11,6 +11,8 @@ class Bot():
 
     async def online_detected(self):
         loggers.bot.info("detected online.")
+        if not is_in_work_day():
+            return
         await self.bot.send_message(OBSERVABLE_USER, f"""
     ⚠️ You are online again. <b>Please refrain from procrastination and continue to work.</b>
 

@@ -35,3 +35,11 @@ class DBWrap():
     @classmethod
     def get_last_status(cls):
         return cls._data.get('last_status')
+
+    @classmethod
+    def reset_db(cls):
+        cls._data = {
+            "last_status": "offline",
+            "last_updated": "00:00:00",
+            "today_online_time": 0
+        }
