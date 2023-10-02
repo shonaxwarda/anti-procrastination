@@ -4,7 +4,14 @@ Many people suffer from procrastination when they try to work or do something us
 
 Here comes this script that will help you to work and count how much time have you **wasted** on telegram.
 
-## Usage
+## Installation
+
+### Bot
+
+- Create new bot via [BotFather](https://t.me/BotFather)
+- Replace existing token in config file
+
+### Client
 
 - Login via Telegram (use your second account or create a new one)
 - Insert your username `@durov` into the config file
