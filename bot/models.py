@@ -21,13 +21,14 @@ Current time: {get_current_time()}
     """, parse_mode="HTML")
 
     async def send_today_online_time(self):
+        loggers.bot.info("exec")
         today_online_time = DBWrap().get_today_online_time()
         msg = "🕛 Today you have spent following time in Telegram:\n\n"
-        msg += get_today_usage_message(today_online_time)
+        msg += self.get_today_usage_message(today_online_time)
 
-        msg += "\n🏢 At work:"
+        msg += "\n🏢 At work:\n"
         today_online_time = DBWrap().get_today_online_work_time()
-        msg += get_today_usage_message(today_online_time)
+        msg += self.get_today_usage_message(today_online_time)
 
         await self.bot.send_message(OBSERVABLE_USER, msg, parse_mode="HTML")
 
@@ -44,10 +45,10 @@ Current time: {get_current_time()}
 
         seconds = today_online_time
         if hours:
-            msg += f"<b>Hours:</b> <code>{hours}</code>\n"
+            msg += f"<b>Hours:</b> <code>{int(hours)}</code>\n"
         if minutes or hours:
-            msg += f"<b>Minutes:</b> <code>{minutes}</code>\n"
+            msg += f"<b>Minutes:</b> <code>{int(minutes)}</code>\n"
         if seconds or minutes or hours:
-            msg += f"<b>Seconds:</b> <code>{seconds}</code>\n"
+            msg += f"<b>Seconds:</b> <code>{int(seconds)}</code>\n"
 
         return msg
