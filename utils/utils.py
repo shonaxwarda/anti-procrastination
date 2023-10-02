@@ -22,7 +22,7 @@ def get_time_difference(current_time, last_time):
 
 def is_in_work_day():
     time_format = "%H:%M:%S"
-    work_start = dt.datetime.strptime(WORK_DAY_START, time_format)
-    work_end = dt.datetime.strptime(WORK_DAY_END, time_format)
-    current_time = dt.datetime.now()
+    work_start = dt.datetime.strptime(WORK_DAY_START, time_format).time()
+    work_end = dt.datetime.strptime(WORK_DAY_END, time_format).time()
+    current_time = dt.datetime.now().time()
     return work_start < current_time < work_end

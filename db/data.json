@@ -1,1 +1,6 @@
-{"last_status": "none", "last_updated": "00:00:00", "today_online_time": 0}
+{
+  "last_status": "offline",
+  "last_updated": "00:00:00",
+  "today_online_time": 0,
+  "today_online_time_work": 0
+}
